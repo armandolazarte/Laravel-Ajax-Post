@@ -1,4 +1,8 @@
 <html>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+-
+-
+-
 -
 -
 -
@@ -8,6 +12,16 @@
 <div id="validationSignup">{!! $errors->first('txt_spaPassword') !!}</div>
 <div id="validationSignup">{!! $errors->first('txt_spaContactno') !!}</div>
 
+
+
+<!-- X-CSRF-TOKEN -->
+<script>
+$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+</script>
 
 <!-- Jquery Ajax for posting values -->
 <script>
