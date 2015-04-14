@@ -16,8 +16,6 @@ Create Model Pages in -> You can create model folder under anywhere in the app. 
 
 Published on laravel website "If the incoming request was an AJAX request, no redirect will be generated. Instead, an HTTP response with a 422 status code will be returned to the browser containing a JSON representation of the validation errors".
 
-I was actually just struggling with this myself, and the answer is pretty simple actually.
-
 Because Laravel's request responds with a status code of 422, jQuery's success/done functions don't fire, but rather the error function, seeing as it's not 200.
 
 So, in order to get the JSON response from your AJAX request generated from the Request object due to validation failing, you need to define the error handler, in my case i added below section in my index.blade.php.
